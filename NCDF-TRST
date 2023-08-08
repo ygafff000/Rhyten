@@ -1,0 +1,16 @@
+rm(list = ls())
+
+library(raster)
+install.packages("ncdf4")
+
+nc.brick <- brick(file.choose())
+
+dim(nc.brick)
+
+nc.df <- as.data.frame(nc.brick[[1]], xy=T)
+
+head(nc.df)
+
+write.csv(nc.df, file.choose())
+
+test3 <- read.csv(file.choose())
